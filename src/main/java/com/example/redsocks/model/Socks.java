@@ -6,10 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Socks {
+public class Socks implements Serializable {
 
     private ColorOfSocks color;
     private ShoeSize shoeSize;
