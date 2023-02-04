@@ -8,24 +8,19 @@ public enum ColorOfSocks {
     WHITE("Белый"),
     BLACK("Черный"),
     BROWN("Коричневый"),
-    GRAY("Серый"),
+    GREY("Серый"),
     PINK("Розовый"),
     PURPLE("Фиолетовый"),
     ORANGE("Оранжевый"),
     MULTICOLOR("Многоцветный");
 
-    String color;
+    private final String color;
 
     ColorOfSocks(String color) {
         this.color = color;
     }
 
     public final String getColor() {
-        return color;
-    }
-
-    @Override
-    public String toString() {
         return color;
     }
 }
