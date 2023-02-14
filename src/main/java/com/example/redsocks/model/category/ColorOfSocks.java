@@ -12,7 +12,8 @@ public enum ColorOfSocks {
     PINK("Розовый"),
     PURPLE("Фиолетовый"),
     ORANGE("Оранжевый"),
-    MULTICOLOR("Многоцветный");
+    MULTICOLOR("Многоцветный"),
+    NULL("Не определен");
 
     private final String color;
 
