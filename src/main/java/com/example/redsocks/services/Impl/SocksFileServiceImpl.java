@@ -22,6 +22,7 @@ public class SocksFileServiceImpl
     @Override
     public void writeToFile(String json) {
         try {
+            Files.createDirectories(Path.of(pathToDataFile));
             Files.writeString(Path.of(pathToDataFile, nameOfSocksDataFile), json);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -32,6 +33,7 @@ public class SocksFileServiceImpl
     @Override
     public void writeReportToFile(String json) {
         try {
+            Files.createDirectories(Path.of(pathToDataFile));
             Files.writeString(Path.of(pathToDataFile, nameOfOperationsReport), json);
         } catch (IOException ex) {
             ex.printStackTrace();

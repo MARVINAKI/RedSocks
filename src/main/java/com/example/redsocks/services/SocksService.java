@@ -20,4 +20,8 @@ public interface SocksService {
     Map<Integer, List<String>> getReport();
 
     boolean deleteSocks(Socks socks, int quantity);
+
+    void writeToFile();
+
+    void readFromFile();
 }

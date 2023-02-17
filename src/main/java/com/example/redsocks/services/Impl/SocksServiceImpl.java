@@ -108,7 +108,8 @@ public class SocksServiceImpl
         return false;
     }
 
-    private void writeToFile() {
+    @Override
+    public void writeToFile() {
         try {
             ObjectMapper mapper = new ObjectMapper();
             String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(socksWarehouse);
@@ -130,7 +131,8 @@ public class SocksServiceImpl
         }
     }
 
-    private void readFromFile() {
+    @Override
+    public void readFromFile() {
         String json = socksFileService.readFromFile();
         ObjectMapper mapper = new ObjectMapper();
         TypeReference<HashMap<Socks, Integer>> typeReference = new TypeReference<>() {

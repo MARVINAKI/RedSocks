@@ -1,6 +1,7 @@
 package com.example.redsocks.controllers;
 
 import com.example.redsocks.services.SocksFileService;
+import com.example.redsocks.services.SocksService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.commons.io.IOUtils;
@@ -22,9 +23,11 @@ import java.io.*;
 @RequestMapping("/api/socks/files")
 public class SocksFileController {
     private final SocksFileService socksFileService;
+    private final SocksService socksService;
 
-    public SocksFileController(SocksFileService socksFileService) {
+    public SocksFileController(SocksFileService socksFileService, SocksService socksService) {
         this.socksFileService = socksFileService;
+        this.socksService = socksService;
     }
 
     @Operation(summary = "Скачать файл с данными о товаре")
@@ -78,6 +81,7 @@ public class SocksFileController {
         File dataFile = socksFileService.getDataFile();
         try (FileOutputStream fos = new FileOutputStream(dataFile)) {
             IOUtils.copy(file.getInputStream(), fos);
+            socksService.readFromFile();
             fos.close();
             return ResponseEntity.ok().build();
         } catch (IOException ex) {
